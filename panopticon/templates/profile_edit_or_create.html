@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block main %}
+<div class="container">
+  {% if form.errors %}
+    <p class="errors">Please correct any errors below: {{ form.non_field_errors }}</p>
+  {% endif %}
+
+  <form action="" method="post">{% csrf_token %}
+    <div class="row">
+      <h3>Editing profile</h3>
+      <div class="span6">
+        <h4>Personal information</h4>
+        <p>
+          <label for="id_display_name">Display name:</label>
+          {{ form.display_name }}
+        </p>
+        <p>
+          <label for="id_first_name">First Name:</label>
+          {{ form.first_name }}
+        </p>
+        <p>
+          <label for="id_last_name">Last Name:</label>
+          {{ form.last_name }}
+        </p>
+      </div>
+      <div class="span6">
+        <h4>Location information</h4>
+        <p>
+          <label for="id_city">City:</label>
+          {{ form.city }}
+        </p>
+        <p>
+          <label for="id_country">Country:</label>
+          {{ form.country }}
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="span2 offset10">
+        <input class="btn btn-success btn-large" type="submit" value="submit" />
+      </div>
+    </div>
+  </form>
+</div>
+{% endblock %}
