@@ -1,5 +1,5 @@
 from django.forms import Form, ModelForm, ChoiceField, RadioSelect
-from panopticon.base.models import UserProfile
+from panopticon.profiles.models import UserProfile
 
 
 class UserProfileForm(ModelForm):

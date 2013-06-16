@@ -59,6 +59,8 @@ INSTALLED_APPS = (
 
     #project apps
     'panopticon.base',
+    'panopticon.profiles',
+    'panopticon.projects',
 )
 
 # A sample logging configuration. The only tangible logging

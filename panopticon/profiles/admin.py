@@ -1,5 +1,5 @@
 from django.contrib import admin
-from panopticon.base.models import UserProfile
+from panopticon.profiles.models import UserProfile
 
 
 class UserProfileAdmin(admin.ModelAdmin):
