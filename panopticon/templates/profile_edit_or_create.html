@@ -23,9 +23,21 @@
           <label for="id_last_name">Last Name:</label>
           {{ form.last_name }}
         </p>
+        {% if me.member %}
+          <p>
+            <label for="id_last_name">Mobile Phone:</label>
+            {{ form.phone }}
+          </p>
+        {% endif %}
       </div>
       <div class="span6">
         <h4>Location information</h4>
+        {% if me.member %}
+          <p>
+            <label for="id_last_name">Area:</label>
+            {{ form.area }}
+          </p>
+        {% endif %}
         <p>
           <label for="id_city">City:</label>
           {{ form.city }}

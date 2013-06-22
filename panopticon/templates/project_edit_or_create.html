@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block main %}
+<div class="container">
+  {% if form.errors %}
+    <p class="errors">Please correct any errors below: {{ form.non_field_errors }}</p>
+  {% endif %}
+
+  <form action="" method="post">{% csrf_token %}
+    <div class="row">
+      <h3>Editing project</h3>
+      <div class="span6">
+        <h4>Information</h4>
+        <p>
+          <label for="id_display_name">Name:</label>
+          {{ form.name }}
+        </p>
+        <p>
+          <label for="id_first_name">Short Description:</label>
+          {{ form.description }}
+        </p>
+        <p>
+          <label for="id_last_name">Summary:</label>
+          {{ form.summary }}
+        </p>
+      </div>
+      <div class="span6">
+        <h4>Resources</h4>
+        <p>
+          <label for="id_city">Wiki:</label>
+          {{ form.wiki }}
+        </p>
+        <p>
+          <label for="id_country">Pad:</label>
+          {{ form.pad }}
+        </p>
+        <p>
+          <label for="id_city">Activity:</label>
+          {{ form.done }}
+        </p>
+        <p>
+          <label for="id_country">Github:</label>
+          {{ form.github }}
+        </p>
+        <p>
+          <label for="id_city">Twitter:</label>
+          {{ form.twitter }}
+        </p>
+        <p>
+          <label for="id_country">Flickr:</label>
+          {{ form.flickr }}
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="span2 offset10">
+        <input class="btn btn-success btn-large" type="submit" value="submit" />
+      </div>
+    </div>
+  </form>
+</div>
+{% endblock %}

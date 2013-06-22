@@ -5,6 +5,61 @@
   <div class="row">
     <div class="span7">
       <h3>Dashboard</h3>
+      <h4>Projects</h4>
+      <table class="table table-striped">
+        <thead>
+          <th>Name</th>
+          <th>Description</th>
+        </thead>
+        <tbody>
+          {% for project in projects %}
+            <tr>
+              <td><a href="/p/{{ project.slug }}">{{ project.name }}</a></td>
+              <td>{{ project.description }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      {% if me.member %}
+        <a href="/p/create/" role="button" class="btn btn-primary" data-toggle="modal">new project</a>
+      {% endif %}
+
+      <hr />
+
+    {% if me.member %}
+      <h4>Διαύγεια</h4>
+      <table class="table table-striped">
+        <thead>
+          <th>Date</th>
+          <th>Amount</th>
+          <th>Source</th>
+          <th>Type</th>
+          <th>Category</th>
+          <th>Comment</th>
+        </thead>
+        <tbody>
+          {% for item in transactions %}
+            <tr>
+              <td>
+                <a href="{{ item.timestamp|date:"Y/m/d/" }}">{{ item.created|date:"d" }}</a>.
+                <a href="{{ item.timestamp|date:"Y/m/" }}">{{ item.created|date:"m" }}.
+                <a href="{{ item.timestamp|date:"Y/" }}">{{ item.created|date:"Y" }}
+              </td>
+              <td>{{ item.amount }}€</td>
+              <td>{{ item.source }}</td>
+              <td>{{ item.get_type_display }}</td>
+              <td>{{ item.get_category_display }}</td>
+              <td>{{ item.comment }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      {% if me.accountant %}
+        <a href="/d/create/" role="button" class="btn btn-primary" data-toggle="modal">new trnasaction</a>
+      {% endif %}
+    {% endif %}
+
     </div>
+  </div>
 </div> <!-- /container -->
 {% endblock %}

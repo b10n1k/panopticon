@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block main %}
+{% if me.accountant %}
+<div class="row">
+    <div class="twelve columns align-right">
+        <a href="/transactions/new/" class="small blue button nice radius">new transaction</a>
+    </div>
+</div>
+{% endif %}
+
+<div class="row">
+    <div class="twelve columns align-left">
+        <div class="balance">Balance: {{ total }}€</div>
+    </div>
+</div>
+
+<div class="row">
+<div class="twelve columns">
+    <table class="twelve">
+        <thead>
+        <tr>
+            <th>Date</th>
+            <th>Amount</th>
+            <th>Source</th>
+            <th>Type</th>
+            <th>Category</th>
+            <th>Comment</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for item in transactions %}
+        <tr>
+            <td>
+                <a href="{{ item.timestamp|date:"Y/m/d/" }}">{{ item.timestamp|date:"d" }}</a>.
+                <a href="{{ item.timestamp|date:"Y/m/" }}">{{ item.timestamp|date:"m" }}.
+                <a href="{{ item.timestamp|date:"Y/" }}">{{ item.timestamp|date:"Y" }}
+            </td>
+            <td>{{ item.amount }}€</td>
+            <td>{{ item.source }}</td>
+            <td>{{ item.get_type_display }}</td>
+            <td>{{ item.get_category_display }}</td>
+            <td>{{ item.comment }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+</div>
+{% endblock %}

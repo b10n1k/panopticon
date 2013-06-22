@@ -8,6 +8,7 @@ urlpatterns = patterns('',
     url(r'^', include('panopticon.base.urls')),
     url(r'^u/', include('panopticon.profiles.urls')),
     url(r'^p/', include('panopticon.projects.urls')),
+    url(r'^d/', include('panopticon.diavgeia.urls')),
 
 
     url(r'^browserid/', include('django_browserid.urls')),

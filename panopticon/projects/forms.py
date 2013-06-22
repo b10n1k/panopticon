@@ -5,7 +5,7 @@ from panopticon.projects.models import Project, Participant
 class ProjectForm(ModelForm):
     class Meta:
         model = Project
-        exclude = ('active', )
+        exclude = ('active', 'slug',)
 
 
 class ParticipantForm(ModelForm):

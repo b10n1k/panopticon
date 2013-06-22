@@ -61,6 +61,7 @@ INSTALLED_APPS = (
     'panopticon.base',
     'panopticon.profiles',
     'panopticon.projects',
+    'panopticon.diavgeia',
 )
 
 # A sample logging configuration. The only tangible logging

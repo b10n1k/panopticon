@@ -48,9 +48,13 @@ Now lets activate our virtualenv again.
 
 `source env/bin/activate`
 
-And from inside of SunObS local repo we run the manage script.
+And from inside of SunObS local repo we run the manage script. When prompted for adding a user, choose not to.
 
-`python manage runserver`
+```
+./manage.py syncdb
+./manage.py migrate
+./manage.py loaddata fixtures/demo_fixtures.json
+```
 
 Now all you have to do is open your browser and point it to the address below.
 

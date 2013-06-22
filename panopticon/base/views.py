@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
 
 from panopticon.profiles.models import UserProfile
+from panopticon.projects.models import Project
+from panopticon.diavgeia.models import Transaction
 from panopticon.decorators import is_logged_in
 
 
@@ -17,7 +19,11 @@ def dashboard(request):
         me = UserProfile.objects.get(user=request.user)
     except UserProfile.DoesNotExist:
         return redirect('/u/register/')
-    return render(request, 'dashboard.html', {'me': me})
+
+    projects = Project.objects.all()
+    transactions = Transaction.objects.all()[:20]
+    return render(request, 'dashboard.html', {'me': me,
+                  'projects': projects, 'transactions': transactions})
 
 
 def about(request):

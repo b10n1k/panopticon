@@ -2,6 +2,7 @@
 from functools import wraps
 from django.contrib import messages
 from django.shortcuts import redirect
+from panopticon.profiles.models import UserProfile
 
 
 def is_logged_in(function):

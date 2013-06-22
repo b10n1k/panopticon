@@ -19,5 +19,5 @@ class UserProfile(models.Model):
     member = models.BooleanField(default=False)
     phone = models.CharField(max_length=14, blank=True)
     fullsub = models.BooleanField(default=True)
-    subtill = models.DateField(blank=True)
+    subtill = models.DateField(auto_now_add=True)
     accountant = models.BooleanField(default=False)
